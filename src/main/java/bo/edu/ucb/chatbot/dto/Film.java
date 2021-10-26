@@ -11,7 +11,8 @@ public class Film {
     private Short releaseYear;
     private String language;
     private String originalLanguage;
-    private String length;
+    private Integer length;
+    private String lengthLabel;
     private String rating;
     private String specialFeatures;
     private List<String> actors;
@@ -37,8 +38,9 @@ public class Film {
     @Override
     public String toString() {
         return "Film{" +
-                "filmId=" + filmId +
-                ", title='" + title + '\'' +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", lengthLabel='" + lengthLabel + '\'' +
                 '}';
     }
 
@@ -90,13 +92,28 @@ public class Film {
         this.originalLanguage = originalLanguage;
     }
 
-    public String getLength() {
+    public Integer getLength() {
         return length;
     }
 
-    public void setLength(String length) {
+    public void setLength(Integer length) {
+        if (length != null) { // Algoritmo para convertir a horas minutos
+            int hours = length / 60;
+            int minutes = length % 60;
+            if (hours > 0) {
+                lengthLabel = hours + "h " + minutes + "m";
+            } else {
+                lengthLabel = minutes + "m";
+            }
+
+        }
         this.length = length;
     }
+
+    public String getLengthLabel() {
+        return lengthLabel;
+    }
+
 
     public String getRating() {
         return rating;

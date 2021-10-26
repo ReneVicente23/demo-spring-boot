@@ -58,8 +58,7 @@ class FindByTitleTests {
 		Film film = films.get(0);
 		assertEquals("MAUDE MOD", film.getTitle(), "El titulo de la película no coincide");
 		assertTrue( film.getDescription().startsWith("A Beautiful Documentary of a Forensic"), "La descripcion de la película no coincide");
-		assertEquals("1h 12m", film.getLength(), "La hora no coincide o esta en formato incorrecto");
-
+		assertEquals("1h 12m", film.getLengthLabel(), "La hora no coincide o esta en formato incorrecto");
 	}
 
 }

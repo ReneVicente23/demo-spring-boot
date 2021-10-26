@@ -1,16 +1,20 @@
 package bo.edu.ucb.chatbot.dao;
 
 import bo.edu.ucb.chatbot.dto.Film;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class FilmDao {
 
     private DataSource dataSource;
 
+    @Autowired
     public FilmDao(DataSource dataSource) {
         this.dataSource = dataSource;
     }
@@ -42,12 +46,13 @@ public class FilmDao {
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
                 Film film = new Film();
-                film.setFilmId(rs.getInt("title"));
+                film.setFilmId(rs.getInt("film_id"));
+                film.setTitle(rs.getString("title"));
                 film.setDescription(rs.getString("description"));
                 film.setReleaseYear(rs.getShort("release_year"));
                 film.setLanguage("language");
                 film.setOriginalLanguage("original_language");
-                film.setLength(rs.getString("length"));
+                film.setLength(rs.getInt("length"));
                 film.setRating(rs.getString("rating"));
                 film.setSpecialFeatures(rs.getString("special_features"));
                 java.sql.Date lastUpdate = rs.getDate("last_update");
