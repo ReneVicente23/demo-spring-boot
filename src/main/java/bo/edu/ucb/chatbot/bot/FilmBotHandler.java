@@ -28,7 +28,7 @@ public class FilmBotHandler extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "2005461235:AAFcqllYMO7FiwqpumFMDT1a2LfW5FdbRko";
+        return "";
     }
 
     @Override
