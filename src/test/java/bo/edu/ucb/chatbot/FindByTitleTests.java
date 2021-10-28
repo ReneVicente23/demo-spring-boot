@@ -51,7 +51,7 @@ class FindByTitleTests {
 	@Test
 	void findExactlyOne() {
 		// Buscamos la pelicula
-		List<Film> films = filmSearchBl.findByTitle("maude");
+		List<Film> films = filmSearchBl.findByTitle("MAUDE MOD");
 		// Probamos que el resultado sea el epserado
 		assertNotNull(films, "La busqueda retorno una lista nula");
 		assertEquals(1, films.size(), "La busqueda debería retornar exactamente un elemento");
